@@ -1,0 +1,12 @@
+mcc_code,merchant_category_name,risk_category
+5812,Restaurants,Low
+5411,Grocery Stores,Low
+5651,Clothing Stores,Low
+5734,Computer Software,Moderate
+7994,Video Game Arcades/Establishments,Moderate
+5532,Automotive Tire Stores,Moderate
+5968,Subscription Services,High
+5921,"Package Stores — Beer, Wine, and Liquor",High
+4511,Airlines and Air Carriers (not elsewhere classified),High
+7995,Gambling/Betting,Prohibited
+7273,Dating and Escort Services,Prohibited
