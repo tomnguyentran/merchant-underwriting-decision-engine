@@ -2,6 +2,7 @@
     GOAL:
  */
 
+CREATE VIEW decision_engine AS
 SELECT
     -- Context Variables
     a.application_id,
