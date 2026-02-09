@@ -3,7 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/fake_data" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/sql_query/decision_engine.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/sql_query/output.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql_query/summary_output.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>
