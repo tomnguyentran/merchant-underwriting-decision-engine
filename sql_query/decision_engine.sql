@@ -47,6 +47,6 @@ FROM applications as a
 -- Join 1: Connect applications to merchants
 LEFT JOIN merchants AS m ON a.merchant_id = m.merchant_id
 --Join 2: Connect merchants to mcc codes
-LEFT JOIN mcc_codes AS mcc ON m.mcc_code = mcc.mcc_code
+LEFT JOIN mcc_codes AS mcc ON m.mcc_code = mcc.mcc_code;
 
 
