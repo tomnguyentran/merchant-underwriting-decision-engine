@@ -1,0 +1,9 @@
+decision,decision_with_reason,total_applications,avg_requested_limit,total_requested_limit
+Approved,Approved,1216,52776.32,64176000
+Declined,Declined - Prohibited MCC,351,55094.02,19338000
+Declined,Declined - Failed KYC,123,53853.66,6624000
+Declined,Declined - Excessive Chargebacks,103,50970.87,5250000
+Declined,Declined - Low Credit Score,100,53940,5394000
+Declined,Declined - TMF Listed,34,47117.65,1602000
+Manual Review,Manual Review - New Business Claims High Volume,51,90588.24,4620000
+Manual Review,Manual Review - Borderline Credit,22,64363.64,1416000
