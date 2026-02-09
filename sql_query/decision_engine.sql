@@ -1,5 +1,10 @@
 /*
-    GOAL:
+    GOAL: Automate the merchant underwriting process to reduce manual review volume.
+
+    LOGIC:
+    1. Expand the application data by joining with merchant and mcc codes.
+    2. Apply the decision logic to determine the final status of the application
+    3. Categorize every application into a final decision: 'Approved', 'Declined', or 'Manual Review'.
  */
 
 CREATE VIEW decision_engine AS
