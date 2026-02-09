@@ -4,38 +4,39 @@
 
 SELECT
     -- Context Variables
-    application_id,
+    a.application_id,
     a.merchant_id,
-    merchant_legal_name,
-    merchant_dba_name,
-    state,
-    website_url,
+    m.merchant_legal_name,
+    m.merchant_dba_name,
+    m.state,
+    m.website_url,
     m.mcc_code,
 
     -- Risk Factors
     mcc.merchant_category_name,
-    requested_limit,
-    average_ticket_size,
-    owner_credit_score,
-    years_in_business,
-    previous_chargeback_ratio,
+    mcc.risk_category,
+    a.requested_limit,
+    a.average_ticket_size,
+    a.owner_credit_score,
+    a.years_in_business,
+    a.previous_chargeback_ratio,
 
     -- Decision Engine
     CASE
         -- Hard declined (Failed regulatory and restricted MCC)
-        WHEN tmf_list = TRUE THEN 'Declined - TMF Listed'
-        WHEN kyc_status = 'Failed' THEN 'Declined - Failed KYC'
-        WHEN kyb_status = 'Failed' THEN 'Declined - Failed KYC'
-        WHEN risk_category = 'Prohibited' THEN 'Declined - Prohibited MCC'
+        WHEN a.tmf_list = TRUE THEN 'Declined - TMF Listed'
+        WHEN a.kyc_status = 'Failed' THEN 'Declined - Failed KYC'
+        WHEN a.kyb_status = 'Failed' THEN 'Declined - Failed KYC'
+        WHEN mcc.risk_category = 'Prohibited' THEN 'Declined - Prohibited MCC'
 
         -- Soft Decline (Financial Risk)
-        WHEN owner_credit_score < 600 THEN 'Declined - Low Credit Score'
-        WHEN years_in_business > 0 AND previous_chargeback_ratio > 1.0 THEN 'Declined - Excessive Chargebacks'
+        WHEN a.owner_credit_score < 600 THEN 'Declined - Low Credit Score'
+        WHEN a.years_in_business > 0 AND a.previous_chargeback_ratio > 1.0 THEN 'Declined - Excessive Chargebacks'
 
         -- Manual Review
-        WHEN years_in_business = 0  AND requested_limit > 50000 THEN 'Manual Review - New Business Claims High Volume'
-        WHEN average_ticket_size > 1500 AND risk_category = 'Low' THEN 'Manual Review - Ticket Size Anomaly'
-        WHEN owner_credit_score BETWEEN 600 AND 650 THEN 'Manual Review - Borderline Credit'
+        WHEN a.years_in_business = 0  AND a.requested_limit > 50000 THEN 'Manual Review - New Business Claims High Volume'
+        WHEN a.average_ticket_size > 1500 AND mcc.risk_category = 'Low' THEN 'Manual Review - Ticket Size Anomaly'
+        WHEN a.owner_credit_score BETWEEN 600 AND 650 THEN 'Manual Review - Borderline Credit'
 
         -- Approved
         ELSE 'Approved'
