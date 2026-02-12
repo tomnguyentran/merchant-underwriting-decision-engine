@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/fake_data" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/sql_query/decision_engine.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/sql_query/summary_output.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/data" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/queries/decision_engine.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/queries/summary_output.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>
